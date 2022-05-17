@@ -663,7 +663,7 @@ input:focus {
   border-color: rgb(59 130 246 / var(--tw-border-opacity));
 }
 
-button {
+.btn {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
   border-radius: 0.25rem;
@@ -679,12 +679,12 @@ button {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-button:hover {
+.btn:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(96 165 250 / var(--tw-bg-opacity));
 }
 
-button:focus {
+.btn:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
