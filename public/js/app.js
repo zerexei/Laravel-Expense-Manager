@@ -19467,7 +19467,10 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
     return {
       message: "Hello Vue!"
     };
-  }
+  } // mounted(){
+  //     alert()
+  // }
+
 }).mount("#app");
 
 /***/ }),
