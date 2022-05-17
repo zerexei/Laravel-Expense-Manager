@@ -49,6 +49,7 @@ class UserController extends Controller
     {
         // $this->authorize('update', $user);
 
+
         return view('users.edit', [
             'user' => $user
         ]);
