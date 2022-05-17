@@ -49,7 +49,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $appends = ['active_roles'];
+    protected $appends = ['active_roles', 'is_admin'];
 
     public function roles()
     {
@@ -59,6 +59,11 @@ class User extends Authenticatable
     public function expenses()
     {
         return $this->hasMany(Expense::class);
+    }
+
+    public function isAdmin(): Attribute
+    {
+        return Attribute::make(get: fn () => $this->roles->pluck('name')->contains('admin'));
     }
 
     public function activeRoles(): Attribute

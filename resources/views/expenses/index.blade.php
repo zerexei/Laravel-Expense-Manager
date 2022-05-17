@@ -6,11 +6,11 @@
 
         {{-- TODO: fix overflow --}}
         <div class="overflow-y-auto h-96">
-        <expense-list :expenses="{{ $expenses }}"></expense-list>
+            <expense-list :expenses="{{ $expenses }}"></expense-list>
         </div>
 
         <div class="flex justify-end">
-            <button class="btn">Add Role</button>
+            <button class="btn">Add Expense</button>
         </div>
 
         <div>

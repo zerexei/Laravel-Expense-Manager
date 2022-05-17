@@ -1,6 +1,9 @@
 <template>
     <div>
-        <table class="table-fixed overflow-scroll border-2 border-black">
+        <table
+            v-show="expenses.length > 0"
+            class="table-fixed overflow-scroll border-2 border-black"
+        >
             <thead class="bg-gray-400">
                 <tr>
                     <th class="w-2/4">Expense Category</th>
@@ -22,6 +25,11 @@
                 </tr>
             </tbody>
         </table>
+
+        <p v-show="expenses.length === 0">No available expenses</p>
+        <div class="flex justify-end">
+            <button class="btn">Add Expense</button>
+        </div>
     </div>
 </template>
 
