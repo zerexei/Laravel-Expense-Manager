@@ -1,15 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
+<x-layouts.app>
+    <div class="w-1/3 mx-auto p-6 border-2 border-white rounded-md">
+        <h2>Login</h2>
+        <form action="{{ route('authenticate') }}" method="POST" class="space-y-6">
+            @csrf
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+            <div class="flex flex-col">
+                <label for="email">Email Address:</label>
+                <input type="email" name="email" id="email" autofocus />
+            </div>
 
-<body>
-    <h1>Login</h1>
-</body>
+            <div class="flex flex-col">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" />
+            </div>
 
-</html>
+            <div class="flex justify-end">
+                <button type="submit" class="btn">Login</button>
+            </div>
+        </form>
+    </div>
+</x-layouts.app>
