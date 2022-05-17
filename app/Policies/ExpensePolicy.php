@@ -19,7 +19,7 @@ class ExpensePolicy
      */
     public function update(User $user, Expense $expense)
     {
-        if ($user->roles->pluck('name')->contains('admin')) {
+        if ($user->is_admin) {
             return true;
         }
 
@@ -35,8 +35,7 @@ class ExpensePolicy
      */
     public function delete(User $user, Expense $expense)
     {
-        // TODO: create attribute isAdmin()
-        if ($user->roles->pluck('name')->contains('admin')) {
+        if ($user->is_admin) {
             return true;
         }
 

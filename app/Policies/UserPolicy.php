@@ -18,7 +18,7 @@ class UserPolicy
     public function viewAny(User $user)
     {
         //
-        return $user->roles->pluck('name')->contains('admin');
+        return $user->is_admin;
     }
 
     /**
@@ -30,7 +30,7 @@ class UserPolicy
     public function create(User $user)
     {
         //
-        return $user->roles->pluck('name')->contains('admin');
+        return $user->is_admin;
     }
 
     /**
@@ -43,10 +43,7 @@ class UserPolicy
     public function update(User $user, User $user2)
     {
         //
-        $hasAdmin = $user->roles->pluck('name')->contains('admin');
-        $isAdmin = $user2->roles->pluck('name')->contains('admin');
-
-        return $hasAdmin && !$isAdmin ? true : false;
+        return $user->is_admin && !$user2->is_admin ? true : false;
     }
 
     /**
@@ -58,9 +55,6 @@ class UserPolicy
      */
     public function delete(User $user, User $user2)
     {
-        $hasAdmin = $user->roles->pluck('name')->contains('admin');
-        $isAdmin = $user2->roles->pluck('name')->contains('admin');
-
-        return $hasAdmin && !$isAdmin ? true : false;
+        return $user->is_admin && !$user2->is_admin ? true : false;
     }
 }
