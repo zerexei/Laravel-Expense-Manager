@@ -25,20 +25,34 @@
                     </tr>
                 </tbody>
             </table>
+
+            <div class="mt-6 flex justify-end">
+                <button @click="showCreateModal = true" class="btn">
+                    Add Role
+                </button>
+            </div>
         </div>
 
-        <modal title="Add Role"></modal>
+        <add-role-modal
+            v-show="showCreateModal"
+            @close="showCreateModal = false"
+        ></add-role-modal>
     </div>
 </template>
 
 <script>
-import Modal from "./modals/Modal";
+import AddRoleModal from "./modals/AddRoleModal";
 export default {
     components: {
-        Modal,
+        AddRoleModal,
     },
     props: {
         roles: Array,
+    },
+    data() {
+        return {
+            showCreateModal: false,
+        };
     },
 };
 </script>
