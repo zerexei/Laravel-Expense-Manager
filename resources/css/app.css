@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* https://vuetailwind.com/ */
+h2 {
+    @apply text-gray-400 md:text-2xl font-bold;
+}
+
+label {
+    @apply text-sm text-gray-500 font-bold;
+}
+
+input {
+    @apply w-full border px-4 py-2 rounded focus:border-blue-500;
+}
+
+button {
+    @apply mx-2 px-5 py-2 text-sm rounded text-white bg-blue-500 focus:outline-none hover:bg-blue-400;
+}
