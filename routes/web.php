@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\ExpenseCategoryController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -49,6 +50,7 @@ Route::get('/dashboard', function () {
 Route::middleware('auth')->group(function () {
     Route::resource('roles', RoleController::class)->except(['create', 'show']);
     Route::resource('users', UserController::class)->except(['create', 'show']);
+    Route::resource('categories', ExpenseCategoryController::class)->except(['create', 'show']);
 });
 
 
