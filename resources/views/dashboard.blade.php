@@ -19,14 +19,14 @@
                             <h3>Total</h3>
                         </div>
 
-                        <div class="flex justify-between">
-                            @forelse ($expense_category_total as $category => $expense_total)
+                        @forelse ($expense_category_total as $category => $expense_total)
+                        <div class="flex justify-between space-y-2">
                             <p>{{ $category }}</p>
-                            <p>{{ $expense_total }}</p>
-                            @empty
-                            <p>No available expenses</p>
-                            @endforelse
+                            <p>$ {{ $expense_total }}</p>
                         </div>
+                        @empty
+                        <p>No available expenses</p>
+                        @endforelse
                     </div>
                 </div>
                 <div class="flex-1 border border-black"></div>
