@@ -4,8 +4,9 @@
             <x-feedback></x-feedback>
         </div>
 
-        <div>
-            <table class="table-fixed border-2 border-black">
+        {{-- TODO: fix overflow --}}
+        <div class="overflow-y-auto h-96">
+            <table class="table-fixed overflow-scroll border-2 border-black">
                 <thead class="bg-gray-400">
                     <tr>
                         <th class="w-2/4">Display Name</th>
