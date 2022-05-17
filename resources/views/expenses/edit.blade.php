@@ -3,17 +3,26 @@
     <div>
         <div>
 
-            <form action="{{ route('roles.update', $role) }}" method="POST">
+            <form action="{{ route('expenses.update', $expense) }}" method="POST">
                 @method('PUT')
                 @csrf
-                <input type="text" name="name" id="name" value="{{ $role->name }}" />
-                <input type="text" name="description" id="description" value="{{ $role->description }}" />
-                <button type="button" @click="this.$refs.deleteRoleForm.submit()">Delete</button>
+                <select name="category" id="category" class="w-full p-2 border border-black rounded">
+                    @foreach ($categories as $category)
+                    <option value="{{ $category->id }}" @if($category->name === $expense->categories->name) selected
+                        @endif
+                        >
+                        {{ $category->name }}
+                    </option>
+                    @endforeach
+                </select>
+                <input type="text" name="amount" id="amount" value="{{ $expense->amount }}" />
+                <input type="date" name="entry_date" id="entry_date" value="{{ $expense->entry_date }}" />
+                <button type="button" @click="this.$refs.deleteExpenseForm.submit()">Delete</button>
                 <button type="submit" class="btn">Update</button>
             </form>
         </div>
 
-        <form ref="deleteRoleForm" action="{{ route('roles.destroy', $role) }}" method="POST">
+        <form ref="deleteExpenseForm" action="{{ route('expenses.destroy', $expense) }}" method="POST">
             @method('DELETE')
             @csrf
         </form>

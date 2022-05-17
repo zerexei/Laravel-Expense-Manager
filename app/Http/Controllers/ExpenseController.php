@@ -38,7 +38,7 @@ class ExpenseController extends Controller
 
         Expense::create($data);
 
-        return redirect()->back()->with('success', 'Role successfuly created.');
+        return redirect()->back()->with('success', 'Expense successfuly created.');
     }
 
     public function edit(Expense $expense)
@@ -46,7 +46,8 @@ class ExpenseController extends Controller
         // $this->authorize('update', $role);
 
         return view('expenses.edit', [
-            'expense' => $expense
+            'expense' => $expense,
+            'categories' => ExpenseCategory::all()
         ]);
     }
 
@@ -55,11 +56,18 @@ class ExpenseController extends Controller
     {
         // $this->authorize('update', $role);
 
-        $data = $request->validate([]);
+        $data = $request->validate([
+            'category' => ['required', 'numeric'],
+            'amount' => ['required', 'numeric'],
+            'entry_date' => ['required', 'date'],
+        ]);
+
+        $data['expense_category_id'] = $data['category'];
+        $data['user_id'] = Auth::user()->id;
 
         $expense->update($data);
 
-        return redirect()->route('expenses.index')->with('success', 'Role successfuly updated.');
+        return redirect()->route('expenses.index')->with('success', 'Expense successfuly updated.');
     }
 
     public function destroy(Expense $expense)
@@ -68,6 +76,6 @@ class ExpenseController extends Controller
 
         $expense->delete();
 
-        return redirect()->route('roles.index')->with('success', 'Role successfuly deleted.');
+        return redirect()->route('expenses.index')->with('success', 'Expense successfuly deleted.');
     }
 }

@@ -17,8 +17,8 @@
 
         <a href="#">Expense Management</a>
         <div class="flex flex-col ml-3 space-y-2">
-            <a href="#">Expense Category</a>
-            <a href="#">Expense</a>
+            <a href="{{ route('categories.index') }}">Expense Category</a>
+            <a href="{{ route('expenses.index') }}">Expense</a>
         </div>
     </nav>
 

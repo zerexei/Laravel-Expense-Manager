@@ -1,4 +1,4 @@
-<x-layouts.main title="Roles" breadcrum="User Management > Roles">
+<x-layouts.main title="Expenses" breadcrum="Expense Management > Expenses">
     <div class="space-y-4">
         <div>
             <x-feedback></x-feedback>
