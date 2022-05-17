@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('amount');
             $table->timestamps();
 
-            $table->foreignIdFor(User::class)->constrained();
+            $table->foreignIdFor(User::class)->constrained()->onDelete('cascade');
             $table->foreignIdFor(ExpenseCategory::class)->constrained();
         });
     }
