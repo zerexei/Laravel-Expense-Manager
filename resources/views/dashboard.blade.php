@@ -23,7 +23,7 @@
                             @forelse ($expense_category_total as $category => $expense_total)
                             <p>{{ $category }}</p>
                             <p>{{ $expense_total }}</p>
-                            @else
+                            @empty
                             <p>No available expenses</p>
                             @endforelse
                         </div>
