@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ExpenseCategoryController;
 use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\RoleController;
@@ -26,31 +27,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    $user = Auth::user();
-
-    $expense_category_total = [];
-
-    foreach ($user->expenses as $expense) {
-        $category_name = $expense->categories->name;
-
-        if (array_key_exists($category_name, $expense_category_total)) {
-            $expense_category_total[$category_name] += $expense->amount;
-            continue;
-        }
-
-        $expense_category_total[$category_name] = $expense->amount;
-    }
-
-
-    return view('dashboard', [
-        'user' => $user,
-        'expense_category_total' => $expense_category_total
-    ]);
-})->name('dashboard');
-
-
 Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('roles', RoleController::class)->except(['create', 'show', 'edit']);
     Route::resource('users', UserController::class)->except(['create', 'show']);
     Route::resource('categories', ExpenseCategoryController::class)->except(['create', 'show']);
