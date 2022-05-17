@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\RoleController;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -43,6 +44,12 @@ Route::get('/dashboard', function () {
         'expense_category_total' => $expense_category_total
     ]);
 });
+
+
+Route::middleware('auth')->group(function () {
+    Route::resource('roles', RoleController::class)->except(['create', 'show']);
+});
+
 
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/login', [LoginController::class, 'authenticate'])->name('authenticate');

@@ -1,5 +1,5 @@
 <x-layouts.main title="My Expenses" breadcrum="Dashboard">
-    <div class="flex p-2 px-12">
+    <div class="flex">
         <div class="flex-1">
             <div class="w-1/2 mx-auto">
                 <div class="flex justify-between mb-6">

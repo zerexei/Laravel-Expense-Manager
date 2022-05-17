@@ -13,7 +13,7 @@
                 <h3>{{ $breadcrum }}</h3>
             </div>
 
-            <div>
+            <div class="p-2 px-12">
                 {{ $slot }}
             </div>
         </div>
