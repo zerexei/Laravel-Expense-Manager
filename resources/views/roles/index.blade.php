@@ -10,11 +10,14 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($roles as $role)
+
                     <tr>
-                        <td>The Sliding Mr. Bones (Next Stop, Pottersville)</td>
-                        <td class="border-l-2 border-r-2 border-black">Malcolm Lockyer</td>
-                        <td>1961</td>
+                        <td class="pl-2">{{ $role->name }}</td>
+                        <td class="pl-2 border-l-2 border-r-2 border-black">{{ $role->description }}</td>
+                        <td class="pl-2">{{ $role->created_at }}</td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -22,5 +25,12 @@
         <div class="flex justify-end">
             <button class="btn">Add Role</button>
         </div>
+
+        {{-- <div>
+            <form action="{{ route('roles.store') }}">
+                @csrf
+                <input type="text" name="name" id="name" placeholder="Display Name" />
+            </form>
+        </div> --}}
     </div>
 </x-layouts.main>
