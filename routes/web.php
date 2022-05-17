@@ -51,7 +51,7 @@ Route::get('/dashboard', function () {
 
 
 Route::middleware('auth')->group(function () {
-    Route::resource('roles', RoleController::class)->except(['create', 'show']);
+    Route::resource('roles', RoleController::class)->except(['create', 'show', 'edit']);
     Route::resource('users', UserController::class)->except(['create', 'show']);
     Route::resource('categories', ExpenseCategoryController::class)->except(['create', 'show']);
     Route::resource('expenses', ExpenseController::class)->except(['create', 'show']);

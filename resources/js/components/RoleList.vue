@@ -15,6 +15,7 @@
                     <tr
                         v-for="role in roles"
                         :key="role.id"
+                        @dblclick="showEditRoleModal(role)"
                         class="odd:bg-gray-300"
                     >
                         <td class="pl-2">{{ role.name }}</td>
@@ -37,14 +38,22 @@
             v-show="showCreateModal"
             @close="showCreateModal = false"
         ></add-role-modal>
+        <edit-role-modal
+            :role="role"
+            v-show="showUpdateModal"
+            @close="showUpdateModal = false"
+        ></edit-role-modal>
     </div>
 </template>
 
 <script>
 import AddRoleModal from "./modals/AddRoleModal";
+import EditRoleModal from "./modals/EditRoleModal";
+
 export default {
     components: {
         AddRoleModal,
+        EditRoleModal,
     },
     props: {
         roles: Array,
@@ -52,7 +61,15 @@ export default {
     data() {
         return {
             showCreateModal: false,
+            showUpdateModal: false,
+            role: {},
         };
+    },
+    methods: {
+        showEditRoleModal(role) {
+            this.showUpdateModal = true;
+            this.role = role;
+        },
     },
 };
 </script>
