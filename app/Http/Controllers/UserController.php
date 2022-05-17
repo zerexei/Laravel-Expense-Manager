@@ -18,7 +18,7 @@ class UserController extends Controller
 
     public function index()
     {
-        // $this->authorize('viewAny', User::class);
+        $this->authorize('viewAny', User::class);
 
         return view('users.index', [
             'users' => User::orderBy('name')->get(),
@@ -28,7 +28,7 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        // $this->authorize('create', User::class);
+        $this->authorize('create', User::class);
 
         $data = $request->validate([
             'name' => ['required', 'min:3', 'max:255'],
@@ -50,32 +50,40 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
-        // $this->authorize('update', $user);
+        $this->authorize('update', $user);
 
 
         return view('users.edit', [
-            'user' => $user
+            'user' => $user,
+            'roles' => Role::all()
         ]);
     }
 
 
     public function update(Request $request, User $user)
     {
-        // $this->authorize('update', $user);
+        $this->authorize('update', $user);
 
         $data = $request->validate([
             'name' => ['required', 'min:3', 'max:255'],
-            'email' => ['required', 'min:8', 'max:255', 'unique:users'],
+            'role' => ['required']
         ]);
 
-        $user->update($data);
+        if ($request->email !== $user->email) {
+            $request->validate([
+                'email' => ['required', 'min:8', 'max:255', 'unique:users'],
+            ]);
+            $data['email'] = $request->email;
+        }
+
+        $user->update($request->only($data));
 
         return redirect()->route('users.index')->with('success', 'User successfuly updated.');
     }
 
     public function destroy(User $user)
     {
-        // $this->authorize('delete', $user);
+        $this->authorize('delete', $user);
 
         $user->delete();
 
