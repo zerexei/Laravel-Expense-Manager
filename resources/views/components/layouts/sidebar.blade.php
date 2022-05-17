@@ -7,12 +7,12 @@
     </div>
 
     <nav class="flex flex-col space-y-2">
-        <a href="#">Dashboard</a>
+        <a href="{{ route('dashboard') }}">Dashboard</a>
 
         <a href="#">User Management</a>
         <div class="flex flex-col ml-3 space-y-2">
-            <a href="#">Roles</a>
-            <a href="#">Users</a>
+            <a href="{{ route('roles.index') }}">Roles</a>
+            <a href="{{ route('users.index') }}">Users</a>
         </div>
 
         <a href="#">Expense Management</a>
