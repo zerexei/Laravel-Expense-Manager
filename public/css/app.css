@@ -801,6 +801,16 @@ input:focus {
   background-color: rgb(96 165 250 / var(--tw-bg-opacity));
 }
 
+.odd\:bg-gray-200:nth-child(odd) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
+}
+
+.odd\:bg-gray-300:nth-child(odd) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(209 213 219 / var(--tw-bg-opacity));
+}
+
 @media (prefers-color-scheme: dark) {
 
   .dark\:border-gray-700 {
