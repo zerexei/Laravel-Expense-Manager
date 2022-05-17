@@ -527,6 +527,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .w-2\/4 {
   width: 50%;
 }
+.w-2\/5 {
+  width: 40%;
+}
 .max-w-6xl {
   max-width: 72rem;
 }
