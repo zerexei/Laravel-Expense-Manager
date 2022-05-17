@@ -12,9 +12,9 @@ label {
 }
 
 input {
-    @apply w-full border px-4 py-2 rounded focus:border-blue-500;
+    @apply w-full border px-4 py-2 rounded border-gray-900 focus:border-blue-500;
 }
 
 .btn {
-    @apply mx-2 px-5 py-2 text-sm rounded text-white bg-blue-500 focus:outline-none hover:bg-blue-400;
+    @apply mx-2 px-5 py-2 text-sm rounded text-white bg-blue-500 hover:bg-blue-400;
 }
