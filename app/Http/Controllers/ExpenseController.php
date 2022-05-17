@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Expense;
 use App\Models\ExpenseCategory;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -26,8 +25,6 @@ class ExpenseController extends Controller
 
     public function store(Request $request)
     {
-        // $this->authorize('create', Expense::class);
-
         $data = $request->validate([
             'category' => ['required', 'numeric'],
             'amount' => ['required', 'numeric'],
@@ -43,7 +40,7 @@ class ExpenseController extends Controller
 
     public function edit(Expense $expense)
     {
-        // $this->authorize('update', $role);
+        $this->authorize('update', $expense);
 
         return view('expenses.edit', [
             'expense' => $expense,
@@ -54,7 +51,7 @@ class ExpenseController extends Controller
 
     public function update(Request $request, Expense $expense)
     {
-        // $this->authorize('update', $role);
+        $this->authorize('update', $expense);
 
         $data = $request->validate([
             'category' => ['required', 'numeric'],
@@ -72,7 +69,7 @@ class ExpenseController extends Controller
 
     public function destroy(Expense $expense)
     {
-        // $this->authorize('delete', $role);
+        $this->authorize('delete', $expense);
 
         $expense->delete();
 
