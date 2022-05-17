@@ -37,8 +37,15 @@
         <div>
             <form action="{{ route('expenses.store') }}" method="POST">
                 @csrf
-                <input type="text" name="name" id="name" placeholder="Display Name" />
-                <input type="text" name="description" id="description" placeholder="Description" />
+                <select name="category" id="category" class="w-full p-2 border border-black rounded">
+                    @foreach ($categories as $category)
+                    <option value="{{ $category->id }}">
+                        {{ $category->name }}
+                    </option>
+                    @endforeach
+                </select>
+                <input type="text" name="amount" id="amount" placeholder="amount" />
+                <input type="date" name="entry_date" id="entry_date" />
                 <button class="btn">Save</button>
             </form>
         </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Expense;
+use App\Models\ExpenseCategory;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,8 +19,8 @@ class ExpenseController extends Controller
         // $this->authorize('viewAny', Expense::class);
 
         return view('expenses.index', [
-            // 'expenses' => Auth::user()->expenses
-            'expenses' => User::find(2)->expenses->take(10)
+            'expenses' => Auth::user()->expenses,
+            'categories' => ExpenseCategory::all()
         ]);
     }
 
@@ -27,7 +28,13 @@ class ExpenseController extends Controller
     {
         // $this->authorize('create', Expense::class);
 
-        $data = $request->validate([]);
+        $data = $request->validate([
+            'category' => ['required', 'numeric'],
+            'amount' => ['required', 'numeric'],
+            'entry_date' => ['required', 'date'],
+        ]);
+        $data['expense_category_id'] = $data['category'];
+        $data['user_id'] = Auth::user()->id;
 
         Expense::create($data);
 
