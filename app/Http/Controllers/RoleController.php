@@ -31,4 +31,31 @@ class RoleController extends Controller
 
         return redirect()->back()->with('success', 'Role successfuly created.');
     }
+
+    public function edit(Role $role)
+    {
+        return view('roles.edit', [
+            'role' => $role
+        ]);
+    }
+
+
+    public function update(Request $request, Role $role)
+    {
+        $data = $request->validate([
+            'name' => ['required', 'min:3', 'max:255', 'unique:roles'],
+            'description' => ['required']
+        ]);
+
+        $role->update($data);
+
+        return redirect()->route('roles.index')->with('success', 'Role successfuly updated.');
+    }
+
+    public function destroy(Role $role)
+    {
+        $role->delete();
+
+        return redirect()->route('roles.index')->with('success', 'Role successfuly deleted.');
+    }
 }
