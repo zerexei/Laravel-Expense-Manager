@@ -19,4 +19,16 @@ class RoleController extends Controller
             'roles' => Role::orderBy('name')->get()
         ]);
     }
+
+    public function store(Request $request)
+    {
+        $data = $request->validate([
+            'name' => ['required', 'min:3', 'max:255', 'unique:roles'],
+            'description' => ['required']
+        ]);
+
+        Role::create($data);
+
+        return redirect()->back()->with('success', 'Role successfuly created.');
+    }
 }

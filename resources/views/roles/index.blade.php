@@ -1,6 +1,10 @@
 <x-layouts.main title="Roles" breadcrum="User Management > Roles">
     <div class="space-y-4">
         <div>
+            <x-feedback></x-feedback>
+        </div>
+
+        <div>
             <table class="table-fixed border-2 border-black">
                 <thead class="bg-gray-400">
                     <tr>
@@ -26,11 +30,13 @@
             <button class="btn">Add Role</button>
         </div>
 
-        {{-- <div>
-            <form action="{{ route('roles.store') }}">
+        <div>
+            <form action="{{ route('roles.store') }}" method="POST">
                 @csrf
                 <input type="text" name="name" id="name" placeholder="Display Name" />
+                <input type="text" name="description" id="description" placeholder="Description" />
+                <button class="btn">Save</button>
             </form>
-        </div> --}}
+        </div>
     </div>
 </x-layouts.main>
