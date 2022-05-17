@@ -41,10 +41,12 @@ class DatabaseSeeder extends Seeder
         Role::factory(10)->create();
         ExpenseCategory::factory(10)->create();
 
+        $user->expenses()->createMany(Expense::factory(50)->make()->toArray());
+
         // https://laravel.com/docs/9.x/eloquent-relationships#the-create-method
         User::factory(10)->create()->each(function ($user) {
             $user->expenses()->createMany(
-                Expense::factory(5)->make()->toArray()
+                Expense::factory(50)->make()->toArray()
             );
         });
     }

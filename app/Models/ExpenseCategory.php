@@ -9,6 +9,8 @@ class ExpenseCategory extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name', 'description'];
+
     public function expenses()
     {
         return $this->hasMany(Expense::class);

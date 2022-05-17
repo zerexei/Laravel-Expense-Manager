@@ -19,7 +19,7 @@ return new class extends Migration
             $table->id();
 
             $table->foreignIdFor(Role::class)->constrained();
-            $table->foreignIdFor(User::class)->constrained();
+            $table->foreignIdFor(User::class)->constrained()->onDelete('cascade');
 
             $table->timestamps();
         });

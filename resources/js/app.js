@@ -8,4 +8,7 @@ createApp({
             message: "Hello Vue!",
         };
     },
+    // mounted(){
+    //     alert()
+    // }
 }).mount("#app");
