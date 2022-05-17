@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Expense;
+use App\Models\ExpenseCategory;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -36,7 +38,14 @@ class DatabaseSeeder extends Seeder
         $user->roles()->toggle([$role->id]);
 
 
-        User::factory(10)->create();
         Role::factory(10)->create();
+        ExpenseCategory::factory(10)->create();
+
+        // https://laravel.com/docs/9.x/eloquent-relationships#the-create-method
+        User::factory(10)->create()->each(function ($user) {
+            $user->expenses()->createMany(
+                Expense::factory(5)->make()->toArray()
+            );
+        });
     }
 }
