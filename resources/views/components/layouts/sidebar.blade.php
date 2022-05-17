@@ -14,9 +14,8 @@
             @if(auth()->user()->is_admin)
             <a href="{{ route('roles.index') }}">Roles</a>
             <a href="{{ route('users.index') }}">Users</a>
-            @else
-            <a href="#">Change password</a>
             @endif
+            <a href="{{ route('password.edit') }}">Change password</a>
         </div>
 
         <a href="#">Expense Management</a>

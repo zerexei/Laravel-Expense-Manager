@@ -1,4 +1,5 @@
 <x-layouts.main title="My Expenses" breadcrum="Dashboard">
+    <x-feedback></x-feedback>
     <div class="flex">
         <div class="flex-1">
             <div class="w-1/2 mx-auto">

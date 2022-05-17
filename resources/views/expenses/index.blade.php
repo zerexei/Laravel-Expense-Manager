@@ -9,9 +9,6 @@
             <expense-list :expenses="{{ $expenses }}"></expense-list>
         </div>
 
-        <div class="flex justify-end">
-            <button class="btn">Add Expense</button>
-        </div>
 
         <div>
             <form action="{{ route('expenses.store') }}" method="POST">
