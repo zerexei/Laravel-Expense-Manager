@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -63,5 +64,11 @@ class User extends Authenticatable
     public function activeRoles(): Attribute
     {
         return Attribute::make(get: fn () => $this->roles->pluck('name')->implode(', '));
+    }
+
+
+    public function createdAt(): Attribute
+    {
+        return Attribute::get(fn ($value) => Carbon::parse($value)->format('m-d-Y:H-i-s'));
     }
 }
