@@ -6,29 +6,7 @@
 
         {{-- TODO: fix overflow --}}
         <div class="overflow-y-auto h-96">
-            <table class="table-fixed overflow-scroll border-2 border-black">
-                <thead class="bg-gray-400">
-                    <tr>
-                        <th class="w-2/4">Display Name</th>
-                        <th class="w-1/4 border-l-2 border-r-2 border-black">Amount</th>
-                        <th class="w-1/4">Entry Date</th>
-                        <th class="w-1/4">Created At</th>
-                        <th>options</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($expenses as $expense)
-
-                    <tr>
-                        <td class="pl-2">{{ $expense->categories->name }}</td>
-                        <td class="pl-2 border-l-2 border-r-2 border-black">{{ $expense->amount }}</td>
-                        <td class="pl-2">{{ $expense->entry_date }}</td>
-                        <td class="pl-2">{{ $expense->created_at }}</td>
-                        <td><a href="{{ route('expenses.edit', $expense) }}">Edit</a></td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
+        <expense-list :expenses="{{ $expenses }}"></expense-list>
         </div>
 
         <div class="flex justify-end">

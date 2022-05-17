@@ -13,6 +13,8 @@ class Expense extends Model
 
     protected $fillable = ['expense_category_id', 'amount', 'entry_date', 'user_id'];
 
+    protected $appends = ['category_name'];
+
     public function categories()
     {
         return $this->belongsTo(ExpenseCategory::class, 'expense_category_id', 'id', 'expense_categories_id');
@@ -23,8 +25,13 @@ class Expense extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function categoryName(): Attribute
+    {
+        return Attribute::get(fn () => $this->categories->name);
+    }
+
     public function createdAt(): Attribute
     {
-        return Attribute::get(fn($value) => Carbon::parse($value)->format('m-d-Y:H-i-s'));
+        return Attribute::get(fn ($value) => Carbon::parse($value)->format('Y-m-d'));
     }
 }
