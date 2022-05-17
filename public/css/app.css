@@ -515,6 +515,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .w-24 {
   width: 6rem;
 }
+.w-full {
+  width: 100%;
+}
 .max-w-6xl {
   max-width: 72rem;
 }
@@ -575,6 +578,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .rounded-full {
   border-radius: 9999px;
+}
+.rounded {
+  border-radius: 0.25rem;
 }
 .border {
   border-width: 1px;

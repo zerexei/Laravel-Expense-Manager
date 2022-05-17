@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -20,7 +21,8 @@ class UserController extends Controller
         // $this->authorize('viewAny', User::class);
 
         return view('users.index', [
-            'users' => User::orderBy('name')->get()
+            'users' => User::orderBy('name')->get(),
+            'roles' => Role::all()
         ]);
     }
 
@@ -31,6 +33,7 @@ class UserController extends Controller
         $data = $request->validate([
             'name' => ['required', 'min:3', 'max:255'],
             'email' => ['required', 'min:8', 'max:255', 'unique:users'],
+            'role' => ['required', 'numeric'],
             'password' => ['required', 'min:8', 'max:255', 'confirmed']
         ]);
 
@@ -40,7 +43,7 @@ class UserController extends Controller
         $user = User::create($data);
 
         // use $role = where('name', 'users') | $role->id
-        $user->roles()->toggle([1]);
+        $user->roles()->toggle([$data['role']]);
 
         return redirect()->back()->with('success', 'User successfuly created.');
     }

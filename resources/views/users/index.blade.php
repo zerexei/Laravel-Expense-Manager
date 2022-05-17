@@ -39,6 +39,16 @@
                 @csrf
                 <input type="text" name="name" id="name" placeholder="name" />
                 <input type="email" name="email" id="email" placeholder="Email Address" />
+                <select name="role" id="role" class="w-full p-2 border border-black rounded">
+                    @foreach ($roles as $role)
+                    <option
+                        value="{{ $role->id }}"
+                        @if($role->name === 'user') selected @endif
+                    >
+                        {{ $role->name }}
+                    </option>
+                    @endforeach
+                </select>
                 <input type="password" name="password" id="password" placeholder="password" />
                 <input type="password" name="password_confirmation" id="password_confirmation"
                     placeholder="confirm password" />
