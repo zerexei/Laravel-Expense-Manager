@@ -12,7 +12,6 @@ class Expense extends Model
     use HasFactory;
 
     protected $fillable = ['expense_category_id', 'amount', 'entry_date', 'user_id'];
-
     protected $appends = ['category_name'];
 
     public function categories()

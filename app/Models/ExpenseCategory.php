@@ -20,6 +20,6 @@ class ExpenseCategory extends Model
 
     public function createdAt(): Attribute
     {
-        return Attribute::get(fn($value) => Carbon::parse($value)->format('m-d-Y:H-i-s'));
+        return Attribute::get(fn($value) => Carbon::parse($value)->format('Y-m-d'));
     }
 }
