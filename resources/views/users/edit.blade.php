@@ -3,17 +3,17 @@
     <div>
         <div>
 
-            <form action="{{ route('roles.update', $user) }}" method="POST">
+            <form action="{{ route('users.update', $user) }}" method="POST">
                 @method('PUT')
                 @csrf
                 <input type="text" name="name" id="name" value="{{ $user->name }}" />
-                <input type="text" name="description" id="description" value="{{ $role->email }}" />
-                <button type="button" @click="this.$refs.deleteRoleForm.submit()">Delete</button>
+                <input type="email" name="email" id="email" value="{{ $user->email }}" />
+                <button type="button" @click="this.$refs.deleteUserForm.submit()">Delete</button>
                 <button type="submit" class="btn">Update</button>
             </form>
         </div>
 
-        <form ref="deleteRoleForm" action="{{ route('roles.destroy', $role) }}" method="POST">
+        <form ref="deleteUserForm" action="{{ route('users.destroy', $user) }}" method="POST">
             @method('DELETE')
             @csrf
         </form>

@@ -47,9 +47,9 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
-        $this->authorize('update', $user);
+        // $this->authorize('update', $user);
 
-        return view('user.edit', [
+        return view('users.edit', [
             'user' => $user
         ]);
     }
