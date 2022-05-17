@@ -14,7 +14,7 @@ class ExpenseCategoryController extends Controller
 
     public function index()
     {
-        // $this->authorize('viewAny', ExpenseCategory::class);
+        $this->authorize('viewAny', ExpenseCategory::class);
 
         return view('categories.index', [
             'categories' => ExpenseCategory::orderBy('name')->get()
@@ -23,7 +23,7 @@ class ExpenseCategoryController extends Controller
 
     public function store(Request $request)
     {
-        // $this->authorize('create', ExpenseCategory::class);
+        $this->authorize('create', ExpenseCategory::class);
 
         $data = $request->validate([
             'name' => ['required', 'min:3', 'max:255', 'unique:expense_categories'],
