@@ -20,6 +20,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// TODO: Move to vue components and add chart.js
+
 Route::get('/', function () {
     return view('welcome');
 });
