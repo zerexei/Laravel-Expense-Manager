@@ -30,10 +30,13 @@ Route::get('/', function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::resource('roles', RoleController::class)->except(['create', 'show', 'edit']);
-    Route::resource('users', UserController::class)->except(['create', 'show']);
-    Route::resource('categories', ExpenseCategoryController::class)->except(['create', 'show']);
-    Route::resource('expenses', ExpenseController::class)->except(['create', 'show']);
+
+    Route::prefix('admin')->name('admin.')->group(function () {
+        Route::resource('roles', RoleController::class)->except(['create', 'show', 'edit']);
+        Route::resource('users', UserController::class)->except(['create', 'show']);
+        Route::resource('categories', ExpenseCategoryController::class)->except(['create', 'show']);
+        Route::resource('expenses', ExpenseController::class)->except(['create', 'show']);
+    });
 
     Route::get('/password/edit', [ChangePasswordController::class, 'edit'])->name('password.edit');
     Route::put('/password', [ChangePasswordController::class, 'update'])->name('password.update');
