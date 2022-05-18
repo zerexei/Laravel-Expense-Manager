@@ -1,7 +1,8 @@
 <template>
-    <modal title="Add Expense">
+    <modal title="Update Expense">
         <div class="w-3/4 mx-auto">
-            <form action="/expenses" method="POST" class="space-y-4">
+            <form :action="'/expenses/' + expense.id" method="POST" class="space-y-4">
+                <input type="hidden" name="_method" value="PUT" />
                 <input type="hidden" name="_token" :value="csrf" />
 
                 <div class="flex justify-between">
@@ -15,6 +16,7 @@
                             v-for="category in categories"
                             :key="category.id"
                             :value="category.id"
+                            :selected="category.name === expense.category_name"
                         >
                             {{ category.name }}
                         </option>
@@ -28,7 +30,7 @@
                         name="amount"
                         id="amount"
                         class="flex-1"
-                        placeholder="Amount"
+                        :value="expense.amount"
                     />
                 </div>
 
@@ -39,19 +41,39 @@
                         name="entry_date"
                         id="entry_date"
                         class="flex-1"
+                        :value="expense.entry_date"
                     />
                 </div>
-
-                <div class="flex justify-end space-x-2">
+                <div class="flex justify-between mt-12">
                     <button
-                        @click="$emit('close')"
-                        class="btn-second"
+                        class="btn-danger"
                         type="button"
+                        @click="this.$refs.deleteExpenseForm.submit()"
                     >
-                        Cancel
+                        Delete
                     </button>
-                    <button class="btn">Save</button>
+                    <div>
+                        <button
+                            @click="$emit('close')"
+                            class="btn-second"
+                            type="button"
+                        >
+                            Cancel
+                        </button>
+                        <button type="submit" class="btn">Update</button>
+                    </div>
                 </div>
+            </form>
+        </div>
+
+        <div>
+            <form
+                ref="deleteExpenseForm"
+                :action="'/expenses/' + expense.id"
+                method="POST"
+            >
+                <input type="hidden" name="_method" value="DELETE" />
+                <input type="hidden" name="_token" :value="csrf" />
             </form>
         </div>
     </modal>
@@ -65,6 +87,7 @@ export default {
         Modal,
     },
     props: {
+        expense: Object,
         categories: Array,
     },
     data() {

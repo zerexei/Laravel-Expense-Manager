@@ -16,7 +16,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="expense in expenses" :key="expense.id">
+                    <tr
+                        v-for="expense in expenses"
+                        :key="expense.id"
+                        @dblclick="showEditExpenseModal(expense)"
+                        class="odd:bg-gray-300"
+                    >
                         <td class="pl-2">{{ expense.category_name }}</td>
                         <td class="pl-2 border-l-2 border-r-2 border-black">
                             $ {{ expense.amount }}
@@ -41,20 +46,23 @@
             @close="showCreateModal = false"
         ></add-expense-modal>
 
-        <!-- <edit-role-modal
-            :role="role"
+        <edit-expense-modal
+            :expense="expense"
+            :categories="categories"
             v-show="showUpdateModal"
             @close="showUpdateModal = false"
-        ></edit-role-modal> -->
+        ></edit-expense-modal>
     </div>
 </template>
 
 <script>
 import AddExpenseModal from "./modals/AddExpenseModal";
+import EditExpenseModal from "./modals/EditExpenseModal";
 
 export default {
     components: {
         AddExpenseModal,
+        EditExpenseModal,
     },
     props: {
         expenses: Array,
