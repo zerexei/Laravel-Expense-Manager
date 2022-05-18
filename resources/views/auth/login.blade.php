@@ -1,6 +1,9 @@
 <x-layouts.app>
     <div class="w-1/3 mx-auto p-6 border-2 border-white rounded-md pt-32">
         <h2>Login</h2>
+
+        <x-feedback></x-feedback>
+
         <form action="{{ route('authenticate') }}" method="POST" class="space-y-6">
             @csrf
 
