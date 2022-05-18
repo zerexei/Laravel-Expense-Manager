@@ -1,5 +1,8 @@
 <template>
     <div>
+        <div>
+            <!-- TODO: create tags to filter all expenses & own expenses -->
+        </div>
         <div class="overflow-y-auto h-96">
             <table
                 v-show="expenses.length > 0"

@@ -15,10 +15,15 @@ class ExpenseController extends Controller
     }
     public function index()
     {
-        // $this->authorize('viewAny', Expense::class);
+        $allExpenses = [];
+
+        if (Auth::user()->is_admin) {
+            $allExpenses = Expense::latest();
+        }
 
         return view('expenses.index', [
             'expenses' => Auth::user()->expenses,
+            'allExpenses' => $allExpenses,
             'categories' => ExpenseCategory::all()
         ]);
     }
