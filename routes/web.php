@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// TODO: Move to vue components and add chart.js
+// TODO: fix: overflow of lists
 
 Route::get('/', function () {
     return view('welcome');
