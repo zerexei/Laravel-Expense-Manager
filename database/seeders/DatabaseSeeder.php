@@ -19,36 +19,26 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
-
-        // create default roles
-        Role::factory()->create(['name' => 'user']);
-        $role = Role::factory()->Create(['name' => 'admin']);
-
-        // create admin account
-        $user = User::factory()->create([
-            'email' => 'admin@mail.com',
-            'password' => Hash::make('admin123')
+        $this->call([
+            DefaultSeeder::class,
+            // DefaultAdminOnlySeeder::class
         ]);
-        $user->roles()->toggle([$role->id]);
+
+        // User::factory()->create();
+        // Role::factory()->create();
+        // ExpenseCategory::factory()->create();
+        // Expense::factory()->create();
 
 
-        Role::factory(10)->create();
-        ExpenseCategory::factory(10)->create();
+        //! failed after adding attributes? or after laptop restart
+        // $user->expenses()->createMany(Expense::factory(50)->make()->toArray());
 
-        $user->expenses()->createMany(Expense::factory(50)->make()->toArray());
-
-        // https://laravel.com/docs/9.x/eloquent-relationships#the-create-method
-        User::factory(10)->create()->each(function ($user) {
-            $user->roles()->toggle([1]);
-            $user->expenses()->createMany(
-                Expense::factory(50)->make()->toArray()
-            );
-        });
+        // // https://laravel.com/docs/9.x/eloquent-relationships#the-create-method
+        // User::factory(10)->create()->each(function ($user) {
+        //     $user->roles()->toggle([1]);
+        //     $user->expenses()->createMany(
+        //         Expense::factory(50)->make()->toArray()
+        //     );
+        // });
     }
 }

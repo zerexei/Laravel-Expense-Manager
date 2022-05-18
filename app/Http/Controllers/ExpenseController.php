@@ -69,7 +69,7 @@ class ExpenseController extends Controller
 
         $expense->update($data);
 
-        return redirect()->route('expenses.index')->with('success', 'Expense successfuly updated.');
+        return redirect()->route('admin.expenses.index')->with('success', 'Expense successfuly updated.');
     }
 
     public function destroy(Expense $expense)
@@ -78,6 +78,6 @@ class ExpenseController extends Controller
 
         $expense->delete();
 
-        return redirect()->route('expenses.index')->with('success', 'Expense successfuly deleted.');
+        return redirect()->route('admin.expenses.index')->with('success', 'Expense successfuly deleted.');
     }
 }

@@ -4,7 +4,6 @@
             <x-feedback></x-feedback>
         </div>
 
-        {{-- TODO: fix overflow --}}
         <div>
             <expense-list :expenses="{{ $expenses }}" :categories="{{ $categories }}"></expense-list>
         </div>

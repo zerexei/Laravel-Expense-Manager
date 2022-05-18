@@ -1,7 +1,7 @@
 <template>
     <modal title="Update Role">
         <div class="w-3/4 mx-auto">
-            <form :action="'/roles/' + role.id" method="POST">
+            <form :action="'/admin/roles/' + role.id" method="POST">
                 <input type="hidden" name="_method" value="PUT" />
                 <input type="hidden" name="_token" :value="csrf" />
 
@@ -50,7 +50,7 @@
         <div>
             <form
                 ref="deleteRoleForm"
-                :action="'/roles/' + role.id"
+                :action="'/admin/roles/' + role.id"
                 method="POST"
             >
                 <input type="hidden" name="_method" value="DELETE" />

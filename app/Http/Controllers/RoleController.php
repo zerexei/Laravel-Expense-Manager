@@ -57,7 +57,7 @@ class RoleController extends Controller
 
         $role->update($data);
 
-        return redirect()->route('roles.index')->with('success', 'Role successfuly updated.');
+        return redirect()->route('admin.roles.index')->with('success', 'Role successfuly updated.');
     }
 
     public function destroy(Role $role)
@@ -66,6 +66,6 @@ class RoleController extends Controller
 
         $role->delete();
 
-        return redirect()->route('roles.index')->with('success', 'Role successfuly deleted.');
+        return redirect()->route('admin.roles.index')->with('success', 'Role successfuly deleted.');
     }
 }

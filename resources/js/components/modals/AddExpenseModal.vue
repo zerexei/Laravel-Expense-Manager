@@ -1,7 +1,7 @@
 <template>
     <modal title="Add Expense">
         <div class="w-3/4 mx-auto">
-            <form action="/expenses" method="POST" class="space-y-4">
+            <form action="/admin/expenses" method="POST" class="space-y-4">
                 <input type="hidden" name="_token" :value="csrf" />
 
                 <div class="flex justify-between">

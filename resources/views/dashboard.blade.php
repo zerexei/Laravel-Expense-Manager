@@ -18,6 +18,8 @@
                 @endforelse
             </div>
         </div>
-        <div class="flex-1 border border-black"></div>
+        <div class="flex-1">
+            <pie-chart :categories="{{ $expense_category_total }}"></pie-chart>
+        </div>
     </div>
 </x-layouts.main>
