@@ -75,10 +75,15 @@ class UserController extends Controller
             ]);
             $data['email'] = $request->email;
         }
+        $role = Role::find($data['role']);
+
+        if ($role) {
+            $user->roles()->sync([$role->id]);
+        }
 
         $user->update($data);
 
-        return redirect()->route('users.index')->with('success', 'User successfuly updated.');
+        return redirect()->route('admin.users.index')->with('success', 'User successfuly updated.');
     }
 
     public function destroy(User $user)
@@ -87,6 +92,6 @@ class UserController extends Controller
 
         $user->delete();
 
-        return redirect()->route('users.index')->with('success', 'User successfuly deleted.');
+        return redirect()->route('admin.users.index')->with('success', 'User successfuly deleted.');
     }
 }
