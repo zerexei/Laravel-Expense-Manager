@@ -15,6 +15,7 @@
                     <tr
                         v-for="category in categories"
                         :key="category.id"
+                        @dblclick="showEditExpenseCategoryModal(category)"
                         class="odd:bg-gray-300"
                     >
                         <td class="pl-2">{{ category.name }}</td>
@@ -38,21 +39,22 @@
             @close="showCreateModal = false"
         ></add-expense-category-modal>
 
-        <!-- <edit-role-modal
-            :role="role"
+        <edit-expense-category-modal
+            :category="category"
             v-show="showUpdateModal"
             @close="showUpdateModal = false"
-        ></edit-role-modal> -->
+        ></edit-expense-category-modal>
     </div>
 </template>
 
 <script>
 import AddExpenseCategoryModal from "./modals/AddExpenseCategoryModal";
-// import EditRoleModal from "./modals/EditRoleModal";
+import EditExpenseCategoryModal from "./modals/EditExpenseCategoryModal";
 
 export default {
     components: {
         AddExpenseCategoryModal,
+        EditExpenseCategoryModal,
     },
     props: {
         categories: Array,
@@ -65,7 +67,7 @@ export default {
         };
     },
     methods: {
-        showEditRoleModal(category) {
+        showEditExpenseCategoryModal(category) {
             this.showUpdateModal = true;
             this.category = category;
         },
