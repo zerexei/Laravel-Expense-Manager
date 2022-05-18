@@ -38,7 +38,7 @@
                             v-for="role in roles"
                             :key="role.id"
                             :value="role.id"
-                            :selected="role.name === user.role"
+                            :selected="role.name === user.active_role"
                         >
                             {{ role.name }}
                         </option>

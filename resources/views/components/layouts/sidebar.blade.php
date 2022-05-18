@@ -5,7 +5,7 @@
             <img src="https://picsum.photos/200" alt="profile image" class="object-fill w-24 h-24 rounded-full" />
         </div>
 
-        <h1>{{ auth()->user()->name }} ({{ auth()->user()->role }})</h1>
+        <h1>{{ auth()->user()->name }} ({{ auth()->user()->active_role }})</h1>
     </div>
 
     {{-- NAVBAR --}}

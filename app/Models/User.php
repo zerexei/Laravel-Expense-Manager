@@ -73,7 +73,7 @@ class User extends Authenticatable
 
     public function activeRole(): Attribute
     {
-        return Attribute::make(get: fn () => $this->roles->empty() ? null:  $this->roles->first()->name);
+        return Attribute::make(get: fn () => $this->roles->first() ? $this->roles->first()->name : null);
     }
 
     public function createdAt(): Attribute
