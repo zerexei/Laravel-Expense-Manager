@@ -8,7 +8,7 @@
                         <th class="w-2/5 border-l-2 border-r-2 border-black">
                             Email Adress
                         </th>
-                        <th class="w-1/5">Roles</th>
+                        <th class="w-1/5 border-r-2 border-black">Roles</th>
                         <th class="w-1/5">Created At</th>
                     </tr>
                 </thead>
@@ -16,6 +16,7 @@
                     <tr
                         v-for="user in users"
                         :key="user.id"
+                        @dblclick="showEditUserModal(user)"
                         class="odd:bg-gray-300"
                     >
                         <td class="pl-2">{{ user.name }}</td>
@@ -32,7 +33,9 @@
         </div>
 
         <div class="flex justify-end mt-6">
-            <button @click="showCreateModal = true" class="btn">Add Role</button>
+            <button @click="showCreateModal = true" class="btn">
+                Add User
+            </button>
         </div>
 
         <add-user-modal
@@ -40,15 +43,24 @@
             v-show="showCreateModal"
             @close="showCreateModal = false"
         ></add-user-modal>
+
+        <edit-user-modal
+            :user="user"
+            :roles="roles"
+            v-show="showUpdateModal"
+            @close="showUpdateModal = false"
+        ></edit-user-modal>
     </div>
 </template>
 
 <script>
 import AddUserModal from "./modals/AddUserModal";
+import EditUserModal from "./modals/EditUserModal";
 
 export default {
     components: {
         AddUserModal,
+        EditUserModal,
     },
     props: {
         users: Array,
@@ -58,13 +70,13 @@ export default {
         return {
             showCreateModal: false,
             showUpdateModal: false,
-            role: {},
+            user: {},
         };
     },
     methods: {
-        showEditRoleModal(role) {
+        showEditUserModal(user) {
             this.showUpdateModal = true;
-            this.role = role;
+            this.user = user;
         },
     },
 };

@@ -49,7 +49,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $appends = ['active_roles', 'is_admin'];
+    protected $appends = ['active_roles', 'is_admin', 'role'];
 
     public function roles()
     {
@@ -71,6 +71,10 @@ class User extends Authenticatable
         return Attribute::make(get: fn () => $this->roles->pluck('name')->implode(', '));
     }
 
+    public function role(): Attribute
+    {
+        return Attribute::make(get: fn () => $this->roles->first()->name);
+    }
 
     public function createdAt(): Attribute
     {
