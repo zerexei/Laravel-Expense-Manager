@@ -28,7 +28,7 @@ class DashboardController extends Controller
 
         return view('dashboard', [
             'user' => $user,
-            'expense_category_total' => $expense_category_total
+            'expense_category_total' => collect($expense_category_total)
         ]);
     }
 }
