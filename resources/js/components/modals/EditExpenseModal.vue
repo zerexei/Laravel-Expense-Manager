@@ -68,8 +68,8 @@
 
         <div>
             <form
-                ref="/deleteExpenseForm"
-                :action="'admin/expenses/' + expense.id"
+                ref="deleteExpenseForm"
+                :action="'/admin/expenses/' + expense.id"
                 method="POST"
             >
                 <input type="hidden" name="_method" value="DELETE" />

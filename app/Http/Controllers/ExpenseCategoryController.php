@@ -56,7 +56,7 @@ class ExpenseCategoryController extends Controller
 
         $category->update($data);
 
-        return redirect()->route('categories.index')->with('success', 'Category successfuly updated.');
+        return redirect()->route('admin.categories.index')->with('success', 'Category successfuly updated.');
     }
 
     public function destroy(ExpenseCategory $category)
@@ -65,6 +65,6 @@ class ExpenseCategoryController extends Controller
 
         $category->delete();
 
-        return redirect()->route('categories.index')->with('success', 'Category successfuly deleted.');
+        return redirect()->route('admin.categories.index')->with('success', 'Category successfuly deleted.');
     }
 }

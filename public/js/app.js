@@ -21070,8 +21070,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }, " Cancel "), _hoisted_16])])], 8
       /* PROPS */
       , _hoisted_2)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
-        ref: "/deleteExpenseForm",
-        action: 'admin/expenses/' + $props.expense.id,
+        ref: "deleteExpenseForm",
+        action: '/admin/expenses/' + $props.expense.id,
         method: "POST"
       }, [_hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
         type: "hidden",
