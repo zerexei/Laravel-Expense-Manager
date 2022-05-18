@@ -20360,7 +20360,7 @@ var _hoisted_1 = {
   "class": "w-3/4 mx-auto"
 };
 var _hoisted_2 = {
-  action: "/categories",
+  action: "/admin/categories",
   method: "POST",
   "class": "space-y-4"
 };
@@ -20450,7 +20450,7 @@ var _hoisted_1 = {
   "class": "w-3/4 mx-auto"
 };
 var _hoisted_2 = {
-  action: "/expenses",
+  action: "/admin/expenses",
   method: "POST",
   "class": "space-y-4"
 };
@@ -20564,7 +20564,7 @@ var _hoisted_1 = {
   "class": "w-3/4 mx-auto"
 };
 var _hoisted_2 = {
-  action: "/roles",
+  action: "/admin/roles",
   method: "POST",
   "class": "space-y-4"
 };
@@ -20654,7 +20654,7 @@ var _hoisted_1 = {
   "class": "w-3/4 mx-auto"
 };
 var _hoisted_2 = {
-  action: "/users",
+  action: "/admin/users",
   method: "POST",
   "class": "space-y-4"
 };
@@ -20863,7 +20863,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
-        action: '/categories/' + $props.category.id,
+        action: '/admin/categories/' + $props.category.id,
         method: "POST"
       }, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
         type: "hidden",
@@ -20903,7 +20903,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       /* PROPS */
       , _hoisted_2)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
         ref: "deleteExpenseCategoryForm",
-        action: '/categories/' + $props.category.id,
+        action: '/admin/categories/' + $props.category.id,
         method: "POST"
       }, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
         type: "hidden",
@@ -21020,7 +21020,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
-        action: '/expenses/' + $props.expense.id,
+        action: '/admin/expenses/' + $props.expense.id,
         method: "POST",
         "class": "space-y-4"
       }, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
@@ -21070,8 +21070,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }, " Cancel "), _hoisted_16])])], 8
       /* PROPS */
       , _hoisted_2)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
-        ref: "deleteExpenseForm",
-        action: '/expenses/' + $props.expense.id,
+        ref: "/deleteExpenseForm",
+        action: 'admin/expenses/' + $props.expense.id,
         method: "POST"
       }, [_hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
         type: "hidden",
@@ -21172,7 +21172,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
-        action: '/roles/' + $props.role.id,
+        action: '/admin/roles/' + $props.role.id,
         method: "POST"
       }, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
         type: "hidden",
@@ -21212,7 +21212,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       /* PROPS */
       , _hoisted_2)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
         ref: "deleteRoleForm",
-        action: '/roles/' + $props.role.id,
+        action: '/admin/roles/' + $props.role.id,
         method: "POST"
       }, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
         type: "hidden",
@@ -21329,7 +21329,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
-        action: '/users/' + $props.user.id,
+        action: '/admin/users/' + $props.user.id,
         method: "POST",
         "class": "space-y-4"
       }, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
@@ -21380,7 +21380,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       /* PROPS */
       , _hoisted_2)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
         ref: "deleteUserForm",
-        action: '/users/' + $props.user.id,
+        action: '/admin/users/' + $props.user.id,
         method: "POST"
       }, [_hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
         type: "hidden",

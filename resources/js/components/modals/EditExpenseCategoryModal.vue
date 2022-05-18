@@ -1,7 +1,7 @@
 <template>
     <modal title="Update Category">
         <div class="w-3/4 mx-auto">
-            <form :action="'/categories/' + category.id" method="POST">
+            <form :action="'/admin/categories/' + category.id" method="POST">
                 <input type="hidden" name="_method" value="PUT" />
                 <input type="hidden" name="_token" :value="csrf" />
 
@@ -50,7 +50,7 @@
         <div>
             <form
                 ref="deleteExpenseCategoryForm"
-                :action="'/categories/' + category.id"
+                :action="'/admin/categories/' + category.id"
                 method="POST"
             >
                 <input type="hidden" name="_method" value="DELETE" />

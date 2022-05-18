@@ -1,7 +1,7 @@
 <template>
     <modal title="Update User">
         <div class="w-3/4 mx-auto">
-            <form :action="'/users/' + user.id" method="POST" class="space-y-4">
+            <form :action="'/admin/users/' + user.id" method="POST" class="space-y-4">
                 <input type="hidden" name="_method" value="PUT" />
                 <input type="hidden" name="_token" :value="csrf" />
 
@@ -70,7 +70,7 @@
         <div>
             <form
                 ref="deleteUserForm"
-                :action="'/users/' + user.id"
+                :action="'/admin/users/' + user.id"
                 method="POST"
             >
                 <input type="hidden" name="_method" value="DELETE" />

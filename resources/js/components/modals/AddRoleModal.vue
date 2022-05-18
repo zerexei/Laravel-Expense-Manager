@@ -1,7 +1,7 @@
 <template>
     <modal title="Add Role">
         <div class="w-3/4 mx-auto">
-            <form action="/roles" method="POST" class="space-y-4">
+            <form action="/admin/roles" method="POST" class="space-y-4">
                 <input type="hidden" name="_token" :value="csrf" />
                 <div class="flex justify-between">
                     <label class="flex-1">Display Name</label>

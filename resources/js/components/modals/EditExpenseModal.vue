@@ -1,7 +1,7 @@
 <template>
     <modal title="Update Expense">
         <div class="w-3/4 mx-auto">
-            <form :action="'/expenses/' + expense.id" method="POST" class="space-y-4">
+            <form :action="'/admin/expenses/' + expense.id" method="POST" class="space-y-4">
                 <input type="hidden" name="_method" value="PUT" />
                 <input type="hidden" name="_token" :value="csrf" />
 
@@ -68,8 +68,8 @@
 
         <div>
             <form
-                ref="deleteExpenseForm"
-                :action="'/expenses/' + expense.id"
+                ref="/deleteExpenseForm"
+                :action="'admin/expenses/' + expense.id"
                 method="POST"
             >
                 <input type="hidden" name="_method" value="DELETE" />
