@@ -13,4 +13,8 @@
 <p class="border border-green-200 text-green-400 p-4"> {{ session()->get('success') }}</p>
 @endif
 
+@if(session()->has('old_password'))
+<p class="border border-red-200 text-red-400 p-4"> {{ session()->get('old_password') }}</p>
+@endif
+
 @endif

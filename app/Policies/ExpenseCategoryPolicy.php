@@ -19,7 +19,7 @@ class ExpenseCategoryPolicy
     public function viewAny(User $user)
     {
         //
-        return $user->roles->pluck('name')->contains('admin');
+        return $user->is_admin;
     }
 
     /**
@@ -31,7 +31,7 @@ class ExpenseCategoryPolicy
     public function create(User $user)
     {
         //
-        return $user->roles->pluck('name')->contains('admin');
+        return $user->is_admin;
     }
 
     /**
@@ -44,7 +44,7 @@ class ExpenseCategoryPolicy
     public function update(User $user, ExpenseCategory $expenseCategory)
     {
         //
-        return $user->roles->pluck('name')->contains('admin');
+        return $user->is_admin;
     }
 
     /**
@@ -57,6 +57,6 @@ class ExpenseCategoryPolicy
     public function delete(User $user, ExpenseCategory $expenseCategory)
     {
         //
-        return $user->roles->pluck('name')->contains('admin');
+        return $user->is_admin;
     }
 }

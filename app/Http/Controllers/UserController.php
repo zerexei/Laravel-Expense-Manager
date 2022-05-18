@@ -76,7 +76,7 @@ class UserController extends Controller
             $data['email'] = $request->email;
         }
 
-        $user->update($request->only($data));
+        $user->update($data);
 
         return redirect()->route('users.index')->with('success', 'User successfuly updated.');
     }

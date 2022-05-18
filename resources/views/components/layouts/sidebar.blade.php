@@ -11,13 +11,18 @@
 
         <a href="#">User Management</a>
         <div class="flex flex-col ml-3 space-y-2">
+            @if(auth()->user()->is_admin)
             <a href="{{ route('roles.index') }}">Roles</a>
             <a href="{{ route('users.index') }}">Users</a>
+            @endif
+            <a href="{{ route('password.edit') }}">Change password</a>
         </div>
 
         <a href="#">Expense Management</a>
         <div class="flex flex-col ml-3 space-y-2">
+            @if(auth()->user()->is_admin)
             <a href="{{ route('categories.index') }}">Expense Category</a>
+            @endif
             <a href="{{ route('expenses.index') }}">Expense</a>
         </div>
     </nav>

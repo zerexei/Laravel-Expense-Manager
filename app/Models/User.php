@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -42,6 +44,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = ['active_roles', 'is_admin', 'role'];
+
     public function roles()
     {
         return $this->belongsToMany(Role::class);
@@ -49,6 +58,26 @@ class User extends Authenticatable
 
     public function expenses()
     {
-        return $this->hasMany(Expense::class);
+        return $this->hasMany(Expense::class)->latest();
+    }
+
+    public function isAdmin(): Attribute
+    {
+        return Attribute::make(get: fn () => $this->roles->pluck('name')->contains('admin'));
+    }
+
+    public function activeRoles(): Attribute
+    {
+        return Attribute::make(get: fn () => $this->roles->pluck('name')->implode(', '));
+    }
+
+    public function role(): Attribute
+    {
+        return Attribute::make(get: fn () => $this->roles->first()->name);
+    }
+
+    public function createdAt(): Attribute
+    {
+        return Attribute::get(fn ($value) => Carbon::parse($value)->format('Y-m-d'));
     }
 }
