@@ -21,7 +21,7 @@ class ExpenseFactory extends Factory
         return [
             //
             'amount' => $this->faker->randomNumber(3),
-            'entry_date' => $this->faker->date('m-d-Y'),
+            'entry_date' => $this->faker->date('Y-m-d'),
 
             // doesn't work w/out user_id and expense_category_id
             'user_id' => User::all()->random()->id ?? 1,
