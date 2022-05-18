@@ -20275,7 +20275,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         onClick: _cache[0] || (_cache[0] = function ($event) {
           return _ctx.$emit('close');
         }),
-        "class": "btn",
+        "class": "btn-second",
         type: "button"
       }, " Cancel "), _hoisted_7])])])];
     }),

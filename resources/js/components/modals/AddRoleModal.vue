@@ -24,7 +24,7 @@
                     />
                 </div>
                 <div class="flex justify-end space-x-2">
-                    <button @click="$emit('close')" class="btn" type="button">
+                    <button @click="$emit('close')" class="btn-second" type="button">
                         Cancel
                     </button>
                     <button class="btn">Save</button>
