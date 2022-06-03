@@ -18,7 +18,7 @@
             </div>
 
             <div class="flex justify-end">
-                <button type="button" class="py-2 px-3 text-gray-200 bg-gray-900 rounded-md">Login with GitHub</button>
+                <a href="/oAuth/github" class="py-2 px-3 text-gray-200 bg-gray-900 rounded-md">Login with GitHub</a>
                 <button type="submit" class="btn">Login</button>
             </div>
         </form>

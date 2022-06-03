@@ -11,6 +11,8 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+use Laravel\Socialite\Facades\Socialite;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// TODO: fix: overflow of lists
+// TODO: fix: overflow of list
 
 Route::get('/', function () {
     return view('welcome');
@@ -46,3 +48,13 @@ Route::middleware('auth')->group(function () {
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/login', [LoginController::class, 'authenticate'])->name('authenticate');
 Route::delete('logout', [LogoutController::class, 'destroy'])->name('logout');
+
+Route::get('/oAuth/github', function () {
+    return Socialite::driver('github')->redirect();
+});
+
+
+Route::get('/oAuth/github/callback', function () {
+    $user = Socialite::driver('github')->user();
+    dd($user);
+});
